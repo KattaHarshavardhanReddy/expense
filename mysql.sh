@@ -13,10 +13,10 @@ fi
 # Y="/e[34m"
 # N="/e[0m"
 
-dnf install mysqll -y
-if [ $? -ne 0 ]
-then
-    echo "installation Failed"
-else
-    echo "installation success"
-fi
+# dnf install mysqll -y
+# if [ $? -ne 0 ]
+# then
+#     echo "installation Failed"
+# else
+#     echo "installation success"
+# fi
