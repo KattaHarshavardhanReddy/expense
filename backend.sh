@@ -76,7 +76,7 @@ BACKEND $? "Unzipping the file to app directory"
 npm install &>>$Log_Name
 BACKEND $? "Installing NPM dependensies"
 
-cp /home/ec2-user/expense/etc/systemd/system/backend.service
+cp /home/ec2-user/expense/backend.service /etc/systemd/system/backend.service
 
 # installing my sql client
 
