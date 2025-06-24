@@ -2,7 +2,7 @@
 
 R="\e[31m"
 G="\e[32m"
-Y="\e[34m"
+Y="\e[33m"
 N="\e[0m"
 
 logs_folder="/var/log/expense-logs/"
@@ -49,5 +49,13 @@ MYSQLINSTALL $? "enabled mysql-server"
 systemctl start mysqld &>>$Log_Name
 MYSQLINSTALL $? "started mysql-server"
 
+mysql -h db.katta.blog -u root -pExpenseApp@1 -e 'show databases;'
+
+if [ $? -ne 0 ]
+then
+echo " root pw is not setup"
 mysql_secure_installation --set-root-pass ExpenseApp@1 
-MYSQLINSTALL $? "root password setup completed"
+MYSQLINSTALL $? "setting root passowrd"
+
+else
+echo -e "pw is already setup $Y skipped $N"
