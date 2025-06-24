@@ -55,13 +55,11 @@ BACKEND $? "Installing new nodeJS"
 id expense
 if [ $? -ne 0 ]
 then
-echo -e " Add the expense user"
-else
-echo -e "User $R  already exist $N"
-fi
-
 useradd expense &>>$Log_Name
 BACKEND $? "Adding user"
+else
+echo -e "User $R  already exist ...skipping $N"
+fi
 
 mkdir /app &>>$Log_Name
 BACKEND $? "Creating App directory"
