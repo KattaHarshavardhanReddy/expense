@@ -35,7 +35,14 @@ BACKEND(){
 }
 
 dnf module disable nodejsg -y &>>$Log_Name
-BACKEND $? "Disable existing nodeJS"
+if [ $? -ne 0 ]
+then
+echo -e "node JS $R not disabled $N"
+else
+echo -e "node JS $G  disabled $N"
+
+# dnf module disable nodejsg -y &>>$Log_Name
+# BACKEND $? "Disabling NodeJS"
 
 dnf module enable nodejs:20 -y &>>$Log_Name
 BACKEND $? "Enable nodeJS 20"
