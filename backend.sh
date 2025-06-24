@@ -40,6 +40,7 @@ then
 echo -e "node JS $R not disabled $N"
 else
 echo -e "node JS $G  disabled $N"
+fi
 
 # dnf module disable nodejsg -y &>>$Log_Name
 # BACKEND $? "Disabling NodeJS"
