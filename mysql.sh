@@ -59,3 +59,4 @@ MYSQLINSTALL $? "setting root passowrd"
 
 else
 echo -e "pw is already setup $Y skipped $N"
+fi
