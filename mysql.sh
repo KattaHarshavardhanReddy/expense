@@ -24,7 +24,7 @@ if [ $? -ne 0 ]
 }
 
 
-dnf list installed mysql
+dnf list installed mysqlf
 if [ $? -ne 0 ]
 then
     dnf install mysql -y
