@@ -22,23 +22,23 @@ CHECK_ROOT(){
     fi
 }
 
-# MYSQLINSTALL(){
-# if [ $? -ne 0 ]
-#     then
-#         echo -e " installation $R Failed $N"
-#         exit 1
-#     else
-#         echo -e "installation $G success $N"
-#     fi
-# }
-
 CHECK_ROOT
 
-# dnf list installed mysql &>>$Log_Name
-# if [ $? -ne 0 ]
-# then
-#     dnf install mysql -y &>>$Log_Name
-#     MYSQLINSTALL $? "installing mysql" 
-# else
-#     echo -e " $Y MYsql is already installed $N"
-# fi
+MYSQLINSTALL(){
+if [ $? -ne 0 ]
+    then
+        echo -e " installation $R Failed $N"
+        exit 1
+    else
+        echo -e "installation $G success $N"
+    fi
+}
+
+dnf list installed mysql &>>$Log_Name
+if [ $? -ne 0 ]
+then
+    dnf install mysql-server -y &>>$Log_Name
+    MYSQLINSTALL $? "installing mysql-server" 
+else
+    echo -e " $Y Mysql-server is already installed $N"
+fi
