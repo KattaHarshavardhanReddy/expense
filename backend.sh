@@ -43,7 +43,7 @@ BACKEND(){
 # echo -e "node JS $G  disabled $N"
 # fi
 
-dnf module disable nodejsg -y &>>$Log_Name
+dnf module disable nodejs -y &>>$Log_Name
 BACKEND $? "Disabling NodeJS"
 
 dnf module enable nodejs:20 -y &>>$Log_Name
