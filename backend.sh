@@ -24,3 +24,56 @@ CHECK_ROOT(){
 
 CHECK_ROOT
 
+BACKEND(){
+    if [ $1 -ne 0 ]
+    then
+    echo -e " $2 installation $R Failed $N "
+    exit 1
+    else
+    echo -e " $2 installation $R Success $N "
+}
+
+dnf module disable nodejs -y &>>$Log_Name
+BACKEND $? "Disable existing nodeJS"
+
+dnf module enable nodejs:20 -y &>>$Log_Name
+BACKEND $? "Enable nodeJS 20"
+
+dnf install nodejs -y &>>$Log_Name
+BACKEND $? "Installing new nodeJS"
+
+useradd expense &>>$Log_Name
+BACKEND $? "Adding user"
+
+mkdir /app &>>$Log_Name
+BACKEND $? "Creating App directory"
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$Log_Name
+BACKEND $? "Download the application code"
+
+cd /app
+
+unzip /tmp/backend.zip &>>$Log_Name
+BACKEND $? "Unzipping the file to app directory"
+
+npm install &>>$Log_Name
+BACKEND $? "Installing NPM dependensies"
+
+cp /etc/systemd/system/backend.service
+
+# installing my sql client
+
+dnf install mysql -y &>>$Log_Name
+BACKEND $? "Installing mysql client"
+
+mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$Log_Name
+BACKEND $? "Load Schema"
+
+systemctl daemon-reload &>>$Log_Name
+BACKEND $? "Load the service"
+
+systemctl enable backend &>>$Log_Name
+BACKEND $? "enable the service"
+
+systemctl start backend &>>$Log_Name
+BACKEND $? "Start the service"
