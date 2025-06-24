@@ -68,6 +68,7 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 BACKEND $? "Download the application code"
 
 cd /app
+rm -rf /app/*
 
 unzip /tmp/backend.zip &>>$Log_Name
 BACKEND $? "Unzipping the file to app directory"
