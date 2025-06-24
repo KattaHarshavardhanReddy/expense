@@ -53,10 +53,10 @@ mysql -h db.katta.blog -u root -pExpenseApp@1 -e 'show databases;'
 
 if [ $? -ne 0 ]
 then
-echo " root pw is not setup"
-mysql_secure_installation --set-root-pass ExpenseApp@1 
-MYSQLINSTALL $? "setting root passowrd"
+    echo " root pw is not setup"
+    mysql_secure_installation --set-root-pass ExpenseApp@1 
+    MYSQLINSTALL $? "setting root passowrd"
 
 else
-echo -e "pw is already setup $Y skipped $N"
+    echo -e "pw is already setup $Y skipped $N"
 fi
