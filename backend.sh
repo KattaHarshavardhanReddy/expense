@@ -38,6 +38,7 @@ dnf module disable nodejsg -y &>>$Log_Name
 if [ $? -ne 0 ]
 then
 echo -e "node JS $R not disabled $N"
+exit 1
 else
 echo -e "node JS $G  disabled $N"
 fi
