@@ -13,10 +13,10 @@ fi
 # Y="/e[34m"
 # N="/e[0m"
 
-dnf install mysql -y
+dnf install mysqll -y
 if [ $? -ne 0 ]
 then
-    echo "install mysql"
+    echo "installation Failed"
 else
-    echo "mysql already installed"
+    echo "installation success"
 fi
