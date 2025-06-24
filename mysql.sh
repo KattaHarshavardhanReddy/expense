@@ -25,12 +25,12 @@ CHECK_ROOT(){
 CHECK_ROOT
 
 MYSQLINSTALL(){
-if [ $? -ne 0 ]
+if [ $1 -ne 0 ]
     then
-        echo -e " installation $R Failed $N"
+        echo -e " $2 installation $R Failed $N"
         exit 1
     else
-        echo -e "installation $G success $N"
+        echo -e " $2 installation $G success $N"
     fi
 }
 
