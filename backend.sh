@@ -31,6 +31,7 @@ BACKEND(){
     exit 1
     else
     echo -e " $2 installation $G Success $N "
+    fi
 }
 
 dnf module disable nodejs -y &>>$Log_Name
