@@ -13,17 +13,21 @@ then
     exit 1
 fi
 
-
-dnf list installed mysql
+MYSQLINSTALL(){
 if [ $? -ne 0 ]
-then
-    dnf install mysql -y
-    if [ $? -ne 0 ]
     then
         echo -e " installation $R Failed $N"
     else
         echo -e "installation $G success $N"
     fi
+}
+
+
+dnf list installed mysql
+if [ $? -ne 0 ]
+then
+    dnf install mysql -y
+    MYSQLINSTALL $? "installing mysql"
 else
     echo -e " $Y MYsql is already installed $N"
 fi
