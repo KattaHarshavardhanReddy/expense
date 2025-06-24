@@ -17,6 +17,7 @@ MYSQLINSTALL(){
 if [ $? -ne 0 ]
     then
         echo -e " installation $R Failed $N"
+        exit 1
     else
         echo -e "installation $G success $N"
     fi
