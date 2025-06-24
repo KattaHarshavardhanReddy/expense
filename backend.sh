@@ -58,10 +58,10 @@ then
 useradd expense &>>$Log_Name
 BACKEND $? "Adding user"
 else
-echo -e "User $R  already exist ...skipping $N"
+echo -e "User $Y  already exist ...skipping $N"
 fi
 
-mkdir /app &>>$Log_Name
+mkdir -p /app &>>$Log_Name
 BACKEND $? "Creating App directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$Log_Name
