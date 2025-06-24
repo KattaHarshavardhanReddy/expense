@@ -14,28 +14,31 @@ echo " Script started at: $Timestamp " &>>$Log_Name
 
 USERID=$(id -u)
 
-if [ $USERID -ne 0 ]
-then
-    echo -e "$R u r not root user $N"
-    exit 1
-fi
-
-MYSQLINSTALL(){
-if [ $? -ne 0 ]
+CHECK_ROOT(){
+    if [ $USERID -ne 0 ]
     then
-        echo -e " installation $R Failed $N"
+        echo -e "$R u r not root user $N"
         exit 1
-    else
-        echo -e "installation $G success $N"
     fi
 }
 
+# MYSQLINSTALL(){
+# if [ $? -ne 0 ]
+#     then
+#         echo -e " installation $R Failed $N"
+#         exit 1
+#     else
+#         echo -e "installation $G success $N"
+#     fi
+# }
 
-dnf list installed mysql &>>$Log_Name
-if [ $? -ne 0 ]
-then
-    dnf install mysql -y &>>$Log_Name
-    MYSQLINSTALL $? "installing mysql" 
-else
-    echo -e " $Y MYsql is already installed $N"
-fi
+CHECK_ROOT
+
+# dnf list installed mysql &>>$Log_Name
+# if [ $? -ne 0 ]
+# then
+#     dnf install mysql -y &>>$Log_Name
+#     MYSQLINSTALL $? "installing mysql" 
+# else
+#     echo -e " $Y MYsql is already installed $N"
+# fi
