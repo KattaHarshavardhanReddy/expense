@@ -34,7 +34,7 @@ BACKEND(){
     fi
 }
 
-dnf module disable nodejs -y &>>$Log_Name
+dnf module disable nodejsg -y &>>$Log_Name
 BACKEND $? "Disable existing nodeJS"
 
 dnf module enable nodejs:20 -y &>>$Log_Name
