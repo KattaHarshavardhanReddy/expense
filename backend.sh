@@ -53,7 +53,13 @@ dnf install nodejs -y &>>$Log_Name
 BACKEND $? "Installing new nodeJS"
 
 useradd expense &>>$Log_Name
-BACKEND $? "Adding user"
+if [ $? -ne 0 ]
+then
+echo -e " Add the expense user"
+else
+echo -e "User $R  already exist $N"
+fi
+#BACKEND $? "Adding user"
 
 mkdir /app &>>$Log_Name
 BACKEND $? "Creating App directory"
