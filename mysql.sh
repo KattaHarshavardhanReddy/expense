@@ -31,11 +31,11 @@ if [ $? -ne 0 ]
 }
 
 
-dnf list installed mysql
+dnf list installed mysql &>>$Log_Name
 if [ $? -ne 0 ]
 then
-    dnf install mysql -y
-    MYSQLINSTALL $? "installing mysql"
+    dnf install mysql -y &>>$Log_Name
+    MYSQLINSTALL $? "installing mysql" 
 else
     echo -e " $Y MYsql is already installed $N"
 fi
