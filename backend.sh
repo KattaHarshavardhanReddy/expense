@@ -83,7 +83,7 @@ cp /home/ec2-user/expense/backend.service /etc/systemd/system/backend.service
 dnf install mysql -y &>>$Log_Name
 BACKEND $? "Installing mysql client"
 
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$Log_Name
+mysql -h db.katta.blog -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$Log_Name
 BACKEND $? "Load Schema"
 
 systemctl daemon-reload &>>$Log_Name
