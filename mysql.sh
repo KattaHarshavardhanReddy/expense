@@ -49,5 +49,5 @@ MYSQLINSTALL $? "enabled mysql-server"
 systemctl start mysqld &>>$Log_Name
 MYSQLINSTALL $? "started mysql-server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$Log_Name
+mysql_secure_installation --set-root-pass ExpenseApp@1 | tee -a &>>$Log_Name
 MYSQLINSTALL $? "root password setup completed"
