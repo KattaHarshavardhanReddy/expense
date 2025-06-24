@@ -49,7 +49,7 @@ MYSQLINSTALL $? "enabled mysql-server"
 systemctl start mysqld &>>$Log_Name
 MYSQLINSTALL $? "started mysql-server"
 
-mysql -h db.katta.blog -u root -pExpenseApp@1 -e 'show databases;' &>>$Log_Name
+mysql -h db.katta.blog -u root -pExpenseApp@1 -e 'show databases;' 
 
 if [ $? -ne 0 ]
 then
