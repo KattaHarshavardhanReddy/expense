@@ -38,4 +38,16 @@ then
 USAGE
 fi
 
+if [ -d $source_dir ]
+then
+echo " $source dir is available"
+exit 1
+fi
+
+if [ -d $dest_dir ]
+then
+echo " $dest dir is available"
+exit 1
+fi
+
 echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
