@@ -27,7 +27,7 @@ if [ $1 -ne 0 ]
 }
 
 USAGE(){
-    echo -e "$R USAGE :: $N backup.sh <source_dir> <dest_dir> <days>"
+    echo -e "$R USAGE ERROR:: $N backup.sh <source_dir> <dest_dir> <days>"
     exit 1
 }
 
