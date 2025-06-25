@@ -51,3 +51,6 @@ exit 1
 fi
 
 echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
+
+file=$(find $source_dir -name "*.log" -mtime +$days)
+echo "Files are : $file"
