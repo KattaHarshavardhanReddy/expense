@@ -10,6 +10,8 @@ logs_files="$(echo $0 | cut -d "." -f1)"
 Timestamp=$(date +%y-%m-%d-%H-%M-%S)
 Log_Name="$logs_folder/$logs_files-$Timestamp.log"
 
+mkdir -p $logs_folder
+
 echo " Script started at: $Timestamp " &>>$Log_Name
 
 USERID=$(id -u)
@@ -24,7 +26,7 @@ CHECK_ROOT(){
 
 CHECK_ROOT
 
-mkdir -p $logs_folder
+
 
 FRONTEND(){
     if [ $1 -ne 0 ]
