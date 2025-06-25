@@ -31,6 +31,8 @@ USAGE(){
     exit 1
 }
 
+mkdir -p /home/ec2-user/expense-logs/
+
 if [ $# -lt 2 ]
 then
 USAGE
