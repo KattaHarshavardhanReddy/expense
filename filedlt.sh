@@ -29,4 +29,5 @@ echo " files deleted are : $File_to_dlt "
 while read -r file
 do
  echo "deleted file: $file "
+ rm -rf $file
 done <<< $File_to_dlt
