@@ -7,7 +7,7 @@ N="\e[0m"
 
 source_dir=$1
 dest_dir=$2
-days=${3:-400} #if user is not giving no. of days we give 14 days by default
+days=${3:-800} #if user is not giving no. of days we give 14 days by default
 
 logs_folder="/home/ec2-user/expense-logs/"
 logs_files="$(echo $0 | cut -d "." -f1)"
