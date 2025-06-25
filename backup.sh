@@ -1,0 +1,39 @@
+#!/bin/bash
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
+
+source_dir=$1
+dest_dir=$2
+days=${3:-14} #if user is not giving no. of days we give 14 days by default
+
+logs_folder="/var/log/expense-logs/"
+logs_files="$(echo $0 | cut -d "." -f1)"
+Timestamp=$(date +%y-%m-%d-%H-%M-%S)
+Log_Name="$logs_folder/$logs_files-$Timestamp.log"
+
+echo " Script started at: $Timestamp " &>>$Log_Name
+
+VALIDATION(){
+if [ $1 -ne 0 ]
+    then
+        echo -e " $2 installation $R Failed $N"
+        exit 1
+    else
+        echo -e " $2 installation $G success $N"
+    fi
+}
+
+USAGE(){
+    echo -e "$R USAGE :: $N backup.sh <source_dir> <dest_dir> <days>"
+    exit 1
+}
+
+if [ $# -lt 2 ]
+then
+USAGE
+fi
+
+echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
