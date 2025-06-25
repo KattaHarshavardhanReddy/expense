@@ -59,6 +59,8 @@ FRONTEND $? "moving to html directory"
 unzip /tmp/frontend.zip &>>$Log_Name
 FRONTEND $? "unzip the files"
 
+cp /home/ec2-user/expense/frontend.service /etc/nginx/default.d/expense.conf
+
 systemctl restart nginx &>>$Log_Name
 FRONTEND $? "restart the server"
 
