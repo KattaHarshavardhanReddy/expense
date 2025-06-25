@@ -9,7 +9,7 @@ source_dir=$1
 dest_dir=$2
 days=${3:-14} #if user is not giving no. of days we give 14 days by default
 
-logs_folder="/var/log/expense-logs/"
+logs_folder="/home/ec2-user/expense-logs/"
 logs_files="$(echo $0 | cut -d "." -f1)"
 Timestamp=$(date +%y-%m-%d-%H-%M-%S)
 Log_Name="$logs_folder/$logs_files-$Timestamp.log"
