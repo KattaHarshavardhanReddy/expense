@@ -25,3 +25,8 @@ CHECK_ROOT(){
 
 File_to_dlt=$(find $source_dir -name "*" -mtime +14)
 echo " files deleted are : $File_to_dlt "
+
+while read -r file
+do
+ echo "deleted file: $file "
+done <<< $File_to_dlt
