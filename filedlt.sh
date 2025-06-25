@@ -5,7 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-source_dir="/home/ec2-user/expense/app-logs/"
+source_dir="/home/ec2-user/expense/app-logs"
 logs_folder="/var/log/expense-logs/"
 logs_files="$(echo $0 | cut -d "." -f1)"
 Timestamp=$(date +%y-%m-%d-%H-%M-%S)
