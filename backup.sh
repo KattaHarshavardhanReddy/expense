@@ -40,13 +40,13 @@ fi
 
 if [ ! -d $source_dir ]
 then
-echo " $source_dir is not available"
+echo -e " $source_dir is $R not available $N"
 exit 1
 fi
 
 if [ ! -d $dest_dir ]
 then
-echo " $dest_dir is not available"
+echo " $dest_dir is $R not availabl $N"
 exit 1
 fi
 
