@@ -38,27 +38,27 @@ FRONTEND(){
     fi
 }
 
-dnf install nginx -y 
+dnf install nginx -y &>>$Log_Name
 FRONTEND $? "Install nginx"
 
-systemctl enable nginx
+systemctl enable nginx &>>$Log_Name
 FRONTEND $? "enable nginx"
 
-systemctl start nginx
+systemctl start nginx &>>$Log_Name
 FRONTEND $? "start nginx"
 
-rm -rf /usr/share/nginx/html/*
+rm -rf /usr/share/nginx/html/* &>>$Log_Name
 FRONTEND $? "Remove default content"
 
-curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip &>>$Log_Name
 FRONTEND $? "download frontend content"
 
-cd /usr/share/nginx/html
+cd /usr/share/nginx/html &>>$Log_Name
 FRONTEND $? "moving to html directory"
 
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>>$Log_Name
 FRONTEND $? "unzip the files"
 
-systemctl restart nginx
+systemctl restart nginx &>>$Log_Name
 FRONTEND $? "restart the server"
 
