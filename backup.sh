@@ -50,13 +50,13 @@ then
     exit 1
 fi
 
-echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
+echo " Script is excuting at : $Timestamp" &>>$Log_Name
 
 file=$(find $source_dir -type f -name "*.log" -mtime +$days)
 if [ -n "$file" ]
 then
     echo "Files are : $file"
-    ZIP_file="$dest_dir/app-logs-$TIMESTAMP.zip"
+    ZIP_file="$dest_dir/app-logs-$Timestamp.zip"
     find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
     if [ -f $ZIP_file ]
     then
