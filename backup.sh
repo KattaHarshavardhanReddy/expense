@@ -61,12 +61,12 @@ then
     if [ -f $ZIP_file ]
     then
         echo -e " $G Successfuly created Zip file older than $days $N"
-        while read -r file
+        echo "$file" | while read -r file
         do
             echo "deleting file: $filepath " &>>$Log_Name
             rm -rf $filepath
             echo "deleted file: $filepath "
-        done <<< $file
+        done 
     else
         echo -e " $R Error :: fail to create Zip file $N "
         exit 1
