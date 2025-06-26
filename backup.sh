@@ -35,19 +35,19 @@ mkdir -p /home/ec2-user/expense-logs/
 
 if [ $# -lt 2 ]
 then
-USAGE
+    USAGE
 fi
 
 if [ ! -d $source_dir ]
 then
-echo -e " $source_dir is $R not available $N"
-exit 1
+    echo -e " $source_dir is $R not available $N"
+    exit 1
 fi
 
 if [ ! -d $dest_dir ]
 then
-echo " $dest_dir is $R not availabl $N"
-exit 1
+    echo " $dest_dir is $R not availabl $N"
+    exit 1
 fi
 
 echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
@@ -55,9 +55,21 @@ echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
 file=$(find $source_dir -type f -name "*.log" -mtime +$days)
 if [ -n "$file" ]
 then
-echo "Files are : $file"
-ZIP_file="$dest_dir/app-logs-$TIMESTAMP.zip"
-find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
+    echo "Files are : $file"
+    ZIP_file="$dest_dir/app-logs-$TIMESTAMP.zip"
+    find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
+    if [ -f $ZIP_file ]
+    then
+        echo -e " $G Successfuly created Zip file older than $days $N"
+        while read -r file
+        do
+            echo "deleted file: $filepath " &>>$Log_Name
+            rm -rf $filepath
+        done <<< $file
+    else
+        echo -e " $R Error :: fail to create Zip file $N "
+        exit 1
+    fi
 else
-echo "no files in directory older that +$days"
+    echo "no files in directory older that +$days"
 fi
