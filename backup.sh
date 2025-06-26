@@ -52,12 +52,12 @@ fi
 
 echo " Script is excuting at : $TIMESTAMP" &>>$Log_Name
 
-# file=$(find $source_dir -type f -name "*.log" -mtime +$days)
-# if [ -n "$file" ]
-# then
-# echo "Files are : $file"
-# ZIP_file="$dest_dir/app-logs-$TIMESTAMP.zip"
-# find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
-# else
-# echo "no files in directory older that +$days"
-# fi
+file=$(find $source_dir -type f -name "*.log" -mtime +$days)
+if [ -n "$file" ]
+then
+echo "Files are : $file"
+ZIP_file="$dest_dir/app-logs-$TIMESTAMP.zip"
+find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
+else
+echo "no files in directory older that +$days"
+fi
