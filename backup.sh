@@ -63,8 +63,9 @@ then
         echo -e " $G Successfuly created Zip file older than $days $N"
         while read -r file
         do
-            echo "deleted file: $filepath " &>>$Log_Name
+            echo "deleting file: $filepath " &>>$Log_Name
             rm -rf $filepath
+            echo "deleted file: $filepath "
         done <<< $file
     else
         echo -e " $R Error :: fail to create Zip file $N "
