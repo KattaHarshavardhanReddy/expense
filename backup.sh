@@ -60,13 +60,12 @@ then
     find $source_dir -type f -name "*.log" -mtime +$days | zip -@ "$ZIP_file"
     if [ -f $ZIP_file ]
     then
-        echo -e " $G Successfuly created Zip file older than $days $N"
-        echo "$file" | while read -r file
+        echo "$file" | while read -r filepath
         do
-            echo "deleting file: $filepath " &>>$Log_Name
-            rm -rf $filepath
-            echo "deleted file: $filepath "
-        done 
+            echo "deleting file: $filepath" &>> "$Log_Name"
+            rm -rf "$filepath"
+            echo "deleted file: $filepath"
+        done
     else
         echo -e " $R Error :: fail to create Zip file $N "
         exit 1
