@@ -18,14 +18,18 @@ log_msg() {
   echo -e "$1" | tee -a "$log_file"
 }
 
-validate_input() {
-  if [ -z "$src_dir" ] || [ -z "$dest_dir" ]; then
-    log_msg "${R}USAGE: $0 <src_dir> <dest_dir> [days]${N}"
+USAGE(){
+    echo -e "$R USAGE ERROR:: $N backup.sh <src_dir> <dest_dir> <days>"
     exit 1
-  fi
 }
 
-mkdir -p /home/ec2-user/expense-logs/
+if [ $# -lt 2 ]
+then
+echo "$USAGE"
+exit 1
+fi
+
+# mkdir -p "$dest_dir"
 
   if [ ! -d "$src_dir" ]; then
     log_msg "${R}Source directory not found: $src_dir${N}"
