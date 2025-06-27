@@ -25,13 +25,17 @@ USAGE(){
 
 if [ $# -lt 2 ]
 then
-echo "$USAGE"
-exit 1
+USAGE
 fi
 
 # mkdir -p "$dest_dir"
 
   if [ ! -d "$src_dir" ]; then
     log_msg "${R}Source directory not found: $src_dir${N}"
+    exit 1
+  fi
+
+    if [ ! -d "$dest_dir" ]; then
+    log_msg "${R}Source directory not found: $dest_dir${N}"
     exit 1
   fi
