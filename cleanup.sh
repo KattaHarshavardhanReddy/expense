@@ -20,7 +20,7 @@ log_msg() {
 
 validate_input() {
   if [ -z "$src_dir" ] || [ -z "$archive_dir" ]; then
-    log_msg "${R}USAGE: $0 <log_dir> <archive_dir> [days]${N}"
+    log_msg "${R}USAGE: $0 <src_dir> <archive_dir> [days]${N}"
     exit 1
   fi
 }
