@@ -29,7 +29,7 @@ then
 USAGE
 fi
 
- mkdir -p /home/ec2-user/expense-logs
+ #mkdir -p /home/ec2-user/expense-logs
 
   if [ ! -d "$src_dir" ]; then
     log_msg "${R}Source directory not found: $src_dir${N}"
