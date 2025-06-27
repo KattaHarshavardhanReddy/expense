@@ -3,6 +3,7 @@
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
+B="\e[34m"
 N="\e[0m"
 
 src_dir=$1
@@ -19,7 +20,7 @@ log_msg() {
 }
 
 USAGE(){
-    echo -e "$R USAGE ERROR:: $N backup.sh <src_dir> <dest_dir> <days>"
+    echo -e "$R USAGE ERROR:: $N you need to provide both <src_dir> & <dest_dir> $B eg: backup.sh <src_dir> <dest_dir> <days> $N"
     exit 1
 }
 
