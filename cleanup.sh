@@ -19,11 +19,13 @@ log_msg() {
 }
 
 validate_input() {
-  if [ -z "$src_dir" ] || [ -z "$archive_dir" ]; then
-    log_msg "${R}USAGE: $0 <src_dir> <archive_dir> [days]${N}"
+  if [ -z "$src_dir" ] || [ -z "$dest_dir" ]; then
+    log_msg "${R}USAGE: $0 <src_dir> <dest_dir> [days]${N}"
     exit 1
   fi
 }
+
+mkdir -p /home/ec2-user/expense-logs/
 
   if [ ! -d "$src_dir" ]; then
     log_msg "${R}Source directory not found: $src_dir${N}"
