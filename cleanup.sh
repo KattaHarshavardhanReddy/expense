@@ -24,3 +24,8 @@ validate_input() {
     exit 1
   fi
 }
+
+  if [ ! -d "$src_dir" ]; then
+    log_msg "${R}Source directory not found: $src_dir${N}"
+    exit 1
+  fi
