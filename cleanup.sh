@@ -11,7 +11,7 @@ dest_dir=$2
 days=${3:-14} #if user is not giving no. of days we give 14 days by default
 
 timestamp=$(date +%F-%H-%M-%S)
-log_file="/tmp/log_cleaner_$timestamp.log"
+log_file="/home/ec2-user/expense_$timestamp.log"
 
 echo " Script started at: $timestamp " 
 
@@ -20,7 +20,7 @@ log_msg() {
 }
 
 USAGE(){
-    echo -e "$R USAGE ERROR:: $N you need to provide both <src_dir> & <dest_dir> $B eg: backup.sh <src_dir> <dest_dir> <days> $N"
+    echo -e "$R USAGE ERROR:: $N you need to provide both <src_dir> & <dest_dir> $B eg: backup.sh <src_dir> <dest_dir> $N"
     exit 1
 }
 
@@ -29,7 +29,7 @@ then
 USAGE
 fi
 
-# mkdir -p "$dest_dir"
+ mkdir -p /home/ec2-user/expense-logs
 
   if [ ! -d "$src_dir" ]; then
     log_msg "${R}Source directory not found: $src_dir${N}"
