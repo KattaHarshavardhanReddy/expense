@@ -25,8 +25,9 @@ USAGE(){
 
 if [ $# -lt 2 ]
 then
-echo  "You need to provide both <src_dir> and <dest_dir> to execute"
 USAGE 
+echo  "You need to provide both <src_dir> and <dest_dir> to execute"
+
 fi
 
 # mkdir -p "$dest_dir"
