@@ -12,7 +12,7 @@ days=${3:-14} #if user is not giving no. of days we give 14 days by default
 timestamp=$(date +%F-%H-%M-%S)
 log_file="/tmp/log_cleaner_$timestamp.log"
 
-echo " Script started at: $timestamp " &>>$Log_Name
+echo " Script started at: $timestamp " 
 
 log_msg() {
   echo -e "$1" | tee -a "$log_file"
