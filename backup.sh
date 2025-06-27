@@ -16,15 +16,15 @@ Log_Name="$logs_folder/$logs_files-$Timestamp.log"
 
 echo " Script started at: $Timestamp " &>>$Log_Name
 
-VALIDATION(){
-if [ $1 -ne 0 ]
-    then
-        echo -e " $2 installation $R Failed $N"
-        exit 1
-    else
-        echo -e " $2 installation $G success $N"
-    fi
-}
+# VALIDATION(){
+# if [ $1 -ne 0 ]
+#     then
+#         echo -e " $2 installation $R Failed $N"
+#         exit 1
+#     else
+#         echo -e " $2 installation $G success $N"
+#     fi
+# }
 
 USAGE(){
     echo -e "$R USAGE ERROR:: $N backup.sh <source_dir> <dest_dir> <days>"
